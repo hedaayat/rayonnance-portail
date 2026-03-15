@@ -8,7 +8,7 @@ Built with plain HTML, CSS and vanilla JavaScript — no build step, no framewor
 ## How it works
 
 | Concern | Detail |
-|---|---|
+| --- | --- |
 | **Storage** | All links are persisted in the browser's `localStorage` under the key `rayonnance_links`. Nothing is ever sent to a server. |
 | **Seed data** | On first load (empty storage) the `SEED` array in `app.js` is used to pre-populate the list. It is empty by default; add your own entries there if you want a pre-loaded starting set. |
 | **Tags** | Each link can carry multiple tags (comma-separated). Tags drive the filter tab-bar at the top. |
@@ -38,7 +38,7 @@ The project is a **single static page** — open it directly in any modern brows
 
 ### Option 1 — Double-click (simplest)
 
-```
+```shell
 index.html  →  right-click → Open with → your browser
 ```
 
@@ -57,7 +57,7 @@ npx serve .
 npx http-server . -p 8080
 ```
 
-Then open **http://localhost:8080** in your browser.
+Then open type **[http://localhost:8080](http://localhost:8080)** in your browser.
 
 ---
 
@@ -73,7 +73,7 @@ To update the portal, push to the `main` branch — GitHub Pages rebuilds automa
 
 ## File structure
 
-```
+```tree
 ├── index.html   # markup — header, tab-bar, card grid, modal, confirm bar
 ├── app.js       # all application logic (state, rendering, CRUD, import/export)
 ├── style.css    # dark theme, responsive layout
@@ -86,7 +86,7 @@ To update the portal, push to the `main` branch — GitHub Pages rebuilds automa
 ## Keyboard shortcuts
 
 | Key | Action |
-|---|---|
+| --- | --- |
 | `Escape` | Close modal or dismiss delete confirmation |
 
 ---
