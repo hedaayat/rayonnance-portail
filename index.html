@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-DNS-Prefetch-Control" content="off" />
+  <title>Rayonnance — Internal Applications</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <span class="brand-mark">◆</span>
+      <div>
+        <span class="brand-name">Rayonnance</span>
+        <span class="brand-sub">Internal Applications</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <input type="text" id="search-input" class="search-input" placeholder="Search…" autocomplete="off" />
+      <button class="btn btn-primary" id="btn-add">+ Add</button>
+      <label class="btn btn-secondary" title="Import JSON">
+        ↑ Import
+        <input type="file" id="import-file" accept=".json" style="display:none" />
+      </label>
+      <button class="btn btn-secondary" id="btn-export" title="Export JSON">↓ Export</button>
+    </div>
+  </header>
+
+  <!-- Tab bar -->
+  <nav class="tab-bar" id="tab-bar"></nav>
+
+  <!-- Card grid -->
+  <main class="container">
+    <div class="card-grid" id="card-grid"></div>
+    <p class="empty-state" id="empty-state" style="display:none">No applications found.</p>
+  </main>
+
+  <!-- Add / Edit Modal -->
+  <div class="modal-overlay" id="modal-overlay" style="display:none">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <h2 id="modal-title">Add Application</h2>
+        <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+      </div>
+      <form id="link-form" novalidate>
+        <input type="hidden" id="field-id" />
+
+        <div class="form-row">
+          <div class="form-group" style="flex:0 0 80px">
+            <label for="field-icon">Icon</label>
+            <input type="text" id="field-icon" maxlength="4" placeholder="🔧" />
+          </div>
+          <div class="form-group" style="flex:1">
+            <label for="field-name">Name <span class="required">*</span></label>
+            <input type="text" id="field-name" placeholder="App Name" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="field-url">URL <span class="required">*</span></label>
+          <input type="url" id="field-url" placeholder="https://…" required />
+        </div>
+
+        <div class="form-group">
+          <label for="field-description">Description</label>
+          <input type="text" id="field-description" placeholder="Short description" />
+        </div>
+
+        <div class="form-group">
+          <label for="field-tags">Tags <span class="form-hint">(comma-separated)</span></label>
+          <input type="text" id="field-tags" placeholder="productivity, hr, ai" />
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="modal-cancel">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+
+        <p class="form-error" id="form-error" style="display:none"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete confirmation bar -->
+  <div class="confirm-bar" id="confirm-bar" style="display:none">
+    <span>Delete "<strong id="confirm-name"></strong>"?</span>
+    <button class="btn btn-danger" id="confirm-yes">Delete</button>
+    <button class="btn btn-secondary" id="confirm-no">Cancel</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
